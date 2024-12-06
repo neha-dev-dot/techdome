@@ -1,0 +1,35 @@
+version: '3.8'
+
+services:
+  # MongoDB Service
+  mongodb:
+    image: mongo:latest
+    container_name: mongodb
+    ports:
+      - "27017:27017" 
+    volumes:
+      - mongo_data:/data/db 
+
+  # Backend Service
+  backend:
+    image: bhartineha/techdome-backend:latest
+    container_name: backend
+    depends_on:
+      - mongodb
+    ports:
+      - "5001:5001" 
+    environment:
+      - MONGO_URI=mongodb://mongodb:27017/test
+    restart: always
+
+  # Frontend Service
+  frontend:
+    image: bhartineha/techdome-frontend:latest
+    container_name: frontend
+    ports:
+      - "3000:3000" 
+    restart: always
+
+volumes:
+  mongo_data:
+    driver: local
