@@ -4,16 +4,20 @@
 
 Backend Service
 Navigate to the backend project directory and Build the Docker image:
+
 `docker build -t bhartineha/techdome-backend:latest .`
 
 Push the image to Docker Hub:
+
 `docker push bhartineha/techdome-backend:latest`
 
 Fronetnd Service
 Navigate to the frontend project directory and Build the Docker image:
+
 `docker build -t bhartineha/techdome-frontend:latest .`
 
 Push the image to Docker Hub:
+
 `docker push bhartineha/techdome-frontend:latest`
 
 ## Step 2: Create a docker-compose.yml file for backend, frontend and mongodb containers.
@@ -21,9 +25,11 @@ Push the image to Docker Hub:
 
 ## Step 3: Run the Services
 Start the containers using Docker Compose:
+
 `docker-compose up -d`
 
 Verify that all services are running:
+
 `docker ps`
 
 
